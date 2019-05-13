@@ -36,3 +36,10 @@ Press 2 to set this category to INCOME
 結束程式後開啟Spendria並將輸出的json檔於設定>您的資料>清除並還原開啟\
 ???\
 大功告成，記得檢查有沒有任何錯誤\
+
+
+## 使用函式庫
+Gson 讀取、寫入json檔\
+https://github.com/google/gson \
+Opencsv 讀取csv檔\
+http://opencsv.sourceforge.net/
