@@ -10,10 +10,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws java.text.ParseException{
-        File inputSpendriaJson = new File(args[0]);
+        File inputSpendriaJson = new File("Spendria.json");
         SpendriaJson spendriaJson = parseSpendriaJson(inputSpendriaJson);
 
-        File inputFortuneCityCSV = new File(args[1]);
+        File inputFortuneCityCSV = new File(args[0]);
         List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(inputFortuneCityCSV);
 
         // clear out data from the imported Spendria JSON file
@@ -109,7 +109,7 @@ public class Main {
             spendriaJson.addTransaction(transaction);
         }
 
-        File outputSpendriaJson = new File("output.json");
+        File outputSpendriaJson = new File(args[1]);
         writeSpendriaJson(spendriaJson, outputSpendriaJson);
     }
 
