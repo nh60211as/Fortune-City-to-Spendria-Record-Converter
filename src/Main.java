@@ -81,6 +81,7 @@ public class Main {
             transaction.id = generateRandomHexString();
             transaction.model_state = 1;
             transaction.sync_state = 1;
+            //System.out.println(transaction.id);
 
             transaction.amount = fortuneCityEntry.Amount * 100;
             switch (categoryAndTypeRelation.get(fortuneCityEntry.Category)) {
@@ -109,6 +110,7 @@ public class Main {
             spendriaJson.addTransaction(transaction);
         }
 
+        //System.out.println(spendriaJson.getTransactions().size());
         File outputSpendriaJson = new File(args[1]);
         writeSpendriaJson(spendriaJson, outputSpendriaJson);
     }
@@ -209,7 +211,7 @@ public class Main {
 
     private static String generateRandomHexString(){
         int length = 32;
-        Random random = new Random(System.currentTimeMillis());
+        Random random = new Random();
         StringBuilder sb = new StringBuilder();
         while(sb.length()<length){
             sb.append(Integer.toHexString(random.nextInt()));

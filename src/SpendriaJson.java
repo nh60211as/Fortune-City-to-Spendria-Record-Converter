@@ -15,21 +15,21 @@ public class SpendriaJson {
         timestamp = 1557555414002L;
     }
 
-    public void clearTempData(){
+    public void clearTempData() {
         tags = new LinkedList();
         accounts = new LinkedList<>();
         transactions = new LinkedList();
     }
 
-    public void addCategory(SpendriaCategory category){
+    public void addCategory(SpendriaCategory category) {
         categories.add(category);
     }
 
-    public void addAccount(SpendriaAccount account){
+    public void addAccount(SpendriaAccount account) {
         accounts.add(account);
     }
 
-    public void addTransaction(SpendriaTransaction transaction){
+    public void addTransaction(SpendriaTransaction transaction) {
         transactions.add(transaction);
     }
 
@@ -39,5 +39,9 @@ public class SpendriaJson {
 
     public List<SpendriaAccount> getAccounts() {
         return accounts;
+    }
+
+    public List<SpendriaTransaction> getTransactions() {
+        return transactions;
     }
 }
