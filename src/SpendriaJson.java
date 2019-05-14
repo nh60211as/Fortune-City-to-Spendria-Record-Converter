@@ -16,6 +16,26 @@ public class SpendriaJson {
         transactions = new LinkedList();
     }
 
+    public List<String> getAllUsedIDString(){
+        List usedIDString = new LinkedList();
+        for (SpendriaCurrency currencies : currencies){
+            usedIDString.add(currencies.id);
+        }
+        for (SpendriaCategory category : categories){
+            usedIDString.add(category.id);
+        }
+        for (SpendriaTag tag : tags){
+            usedIDString.add(tag.id);
+        }
+        for (SpendriaAccount account : accounts){
+            usedIDString.add(account.id);
+        }
+        for (SpendriaTransaction transaction : transactions){
+            usedIDString.add(transaction.id);
+        }
+        return usedIDString;
+    }
+
     public void addCurrency(SpendriaCurrency currency) {
         currencies.add(currency);
     }

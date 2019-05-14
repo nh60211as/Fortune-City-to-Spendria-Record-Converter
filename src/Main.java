@@ -10,6 +10,8 @@ import java.util.*;
 
 public class Main {
 
+    private static List<String> usedIDString = new LinkedList();
+
     public static void main(String[] args) throws java.text.ParseException {
         File inputSpendriaJson = new File("Spendria.json");
         SpendriaJson spendriaJson = parseSpendriaJson(inputSpendriaJson);
@@ -18,19 +20,21 @@ public class Main {
         List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(inputFortuneCityCSV);
 
         // clear out data from the imported Spendria JSON file
+        // clear out tags, accounts, and transactions record
         spendriaJson.clearTempData();
+        usedIDString.addAll(spendriaJson.getAllUsedIDString());
 
         // KEY is fortuneCityEntry.Category. VALUE is the type of transaction.
         Map<String, Integer> categoryAndTypeRelation = new HashMap();
         // KEY is fortuneCityEntry.Category. VALUE is the ID of category.
         Map<String, String> categoryAndIDRelation = new HashMap();
-        final int INCOME = 2;
-        final int EXPENSE = 1;
         for (SpendriaCategory category : spendriaJson.getCategories()) {
             categoryAndTypeRelation.put(category.title, category.transaction_type);
             categoryAndIDRelation.put(category.title, category.id);
         }
 
+        final int INCOME = 2;
+        final int EXPENSE = 1;
         int sort_order = spendriaJson.getCategories().size();
         for (FortuneCityEntry fortuneCityEntry : fortuneCityEntries) {
             // if the added account is never seen before
@@ -210,18 +214,23 @@ public class Main {
     }
 
     private static String generateRandomHexString() {
-        int length = 32;
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        while (sb.length() < length) {
-            sb.append(Integer.toHexString(random.nextInt()));
-        }
-        // "00000000-0000-0000-0000-000000000000"
-        // 8-4-4-4-12
-        sb.insert(20, '-');
-        sb.insert(16, '-');
-        sb.insert(12, '-');
-        sb.insert(8, '-');
-        return sb.toString().substring(0, length + 4);
+        String output;
+        do {
+            int length = 32;
+            Random random = new Random();
+            StringBuilder sb = new StringBuilder();
+            while (sb.length() < length) {
+                sb.append(Integer.toHexString(random.nextInt()));
+            }
+            // "00000000-0000-0000-0000-000000000000"
+            // 8-4-4-4-12
+            sb.insert(20, '-');
+            sb.insert(16, '-');
+            sb.insert(12, '-');
+            sb.insert(8, '-');
+            output = sb.toString().substring(0, length + 4);
+        }while(usedIDString.contains(output));
+        usedIDString.add(output);
+        return output;
     }
 }
