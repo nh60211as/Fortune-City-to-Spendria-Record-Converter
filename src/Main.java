@@ -87,14 +87,21 @@ public class Main {
             switch (categoryAndTypeRelation.get(fortuneCityEntry.Category)) {
                 case INCOME:
                     spendriaJson.getAccounts().get(0).addBalance(transaction.amount);
-                    transaction.account_from_id = spendriaJson.getAccounts().get(0).id;
+                    transaction.account_to_id = spendriaJson.getAccounts().get(0).id;
                     transaction.account_from_id = null;
                     transaction.transaction_type = INCOME;
+                    break;
                 case EXPENSE:
                     spendriaJson.getAccounts().get(0).addBalance(-transaction.amount);
-                    transaction.account_from_id = null;
+                    transaction.account_to_id = null;
                     transaction.account_from_id = spendriaJson.getAccounts().get(0).id;
                     transaction.transaction_type = EXPENSE;
+                    break;
+                default:
+                    System.out.println("Error occurred when determining transaction type.");
+                    System.out.println(categoryAndTypeRelation.get(fortuneCityEntry.Category));
+                    System.out.println(spendriaJson.toString());
+                    break;
             }
 
             transaction.category_id = categoryAndIDRelation.get(fortuneCityEntry.Category);
@@ -102,6 +109,7 @@ public class Main {
             Date date = sdf.parse(fortuneCityEntry.getRecordedAt());
             transaction.date = date.getTime();
             transaction.date_modified = date.getTime();
+
             transaction.exchange_rate = 1.0;
             transaction.note = fortuneCityEntry.note;
             transaction.transaction_state = 1;
