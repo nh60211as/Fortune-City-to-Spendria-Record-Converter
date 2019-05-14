@@ -16,7 +16,7 @@ https://www.oracle.com/technetwork/java/javase/downloads/index.html \
 確認系統路徑有JRE在裡面
 
 下載最新版的程式壓縮檔(內含jar檔、Spendria.json)\
-https://github.com/nh60211as/Fortune-City-to-Spendria-Record-Converter/releases\
+https://github.com/nh60211as/Fortune-City-to-Spendria-Record-Converter/releases
 
 ### 操作步驟
 從記帳城市中匯出記錄檔(需要訂閱，可以開啟14天免費試用但是要記得取消訂閱)
