@@ -10,15 +10,14 @@ public class SpendriaJson {
     private List<SpendriaAccount> accounts;
     private List<SpendriaTransaction> transactions;
 
-    public SpendriaJson() {
-        version = 9;
-        timestamp = 1557555414002L;
-    }
-
     public void clearTempData() {
         tags = new LinkedList();
         accounts = new LinkedList<>();
         transactions = new LinkedList();
+    }
+
+    public void addCurrency(SpendriaCurrency currency) {
+        currencies.add(currency);
     }
 
     public void addCategory(SpendriaCategory category) {
@@ -41,7 +40,44 @@ public class SpendriaJson {
         return accounts;
     }
 
-    public List<SpendriaTransaction> getTransactions() {
-        return transactions;
+    public boolean containsAccount(String inputAccount) {
+        for (SpendriaAccount account : accounts)
+            if (account.title.contentEquals(inputAccount)) {
+                return true;
+            }
+        return false;
+    }
+
+    public boolean addAccountBalance(String inputAccount, long addedBalance) {
+        for (SpendriaAccount account : accounts)
+            if (account.title.contentEquals(inputAccount)) {
+                account.addBalance(addedBalance);
+                return true;
+            }
+        return false;
+    }
+
+    public String getAccountID(String inputAccount) {
+        for (SpendriaAccount account : accounts)
+            if (account.title.contentEquals(inputAccount)) {
+                return account.id;
+            }
+        return null;
+    }
+
+    public boolean containsCurrencyCode(String inputCode) {
+        for (SpendriaCurrency currency : currencies)
+            if (currency.code.contentEquals(inputCode)) {
+                return true;
+            }
+        return false;
+    }
+
+    public int getCurrencyDecimalCount(String inputCode){
+        for (SpendriaCurrency currency : currencies)
+            if (currency.code.contentEquals(inputCode)) {
+                return currency.decimal_count;
+            }
+        return 0;
     }
 }
