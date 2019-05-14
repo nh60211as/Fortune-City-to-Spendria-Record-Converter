@@ -97,16 +97,16 @@
       "model_state": 1,
       "sync_state": 1,
       "title": "食物",
-      "color": -7617718,
+      "color": -1739917,
       "transaction_type": 1,
       "sort_order": 0
     },
     {
-      "id": "11f539b2-0536-4b4c-a986-288a81616bac",
+      "id": "e66e59cd-f58c-4d61-8f8c-72cae2a8337d",
       "model_state": 1,
       "sync_state": 1,
-      "title": "休閒",
-      "color": -16537100,
+      "title": "飲品",
+      "color": -14816842,
       "transaction_type": 1,
       "sort_order": 1
     },
@@ -115,52 +115,70 @@
       "model_state": 1,
       "sync_state": 1,
       "title": "交通",
-      "color": -16121,
+      "color": -12409355,
       "transaction_type": 1,
       "sort_order": 2
     },
     {
-      "id": "fb143ab4-9803-40c4-b8c4-e3007781b8f1",
+      "id": "50c85c35-a32f-9a74-f035-eec11cefd6a3",
       "model_state": 1,
       "sync_state": 1,
-      "title": "健康與美容",
-      "color": -6543440,
+      "title": "消費",
+      "color": -5552196,
       "transaction_type": 1,
       "sort_order": 3
     },
     {
-      "id": "5a42702c-086c-4a24-b511-71abc8f15243",
+      "id": "692926fe-71d0-af02-42a4-ecc6411a6805",
       "model_state": 1,
       "sync_state": 1,
-      "title": "服裝",
-      "color": -43230,
+      "title": "娛樂",
+      "color": -415707,
       "transaction_type": 1,
       "sort_order": 4
     },
     {
-      "id": "5cacd3ac-b964-4f55-adf1-ccf4e71cc825",
+      "id": "fdddc59a-cd55-0ee1-93b8-d7b83fd0a3a7",
       "model_state": 1,
       "sync_state": 1,
-      "title": "日用品",
-      "color": -12627531,
+      "title": "居家",
+      "color": -4142541,
       "transaction_type": 1,
       "sort_order": 5
     },
     {
-      "id": "5064b254-0a5e-4186-abfa-ec547debdc4e",
+      "id": "38a8a5af-e862-631e-2ffc-db686b169383",
       "model_state": 1,
       "sync_state": 1,
-      "title": "帳單",
-      "color": -8825528,
+      "title": "3C",
+      "color": -12627531,
       "transaction_type": 1,
       "sort_order": 6
     },
-    {
-      "id": "eea03fe7-75c8-4f9e-9cb4-e8c0eff5883d",
+	{
+      "id": "f0c31103-c871-49ef-edc1-d0fbdcdb489b",
       "model_state": 1,
       "sync_state": 1,
-      "title": "薪資",
-      "color": -14312668,
+      "title": "醫藥",
+      "color": -1092784,
+      "transaction_type": 1,
+      "sort_order": 7
+    },
+	{
+      "id": "b41dccd5-67b8-5b4d-9a91-08581555956c",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "其他",
+      "color": -8875876,
+      "transaction_type": 1,
+      "sort_order": 8
+    },
+    {
+      "id": "1b936e23-4c1d-d01a-66a9-540279d24a6a",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "收入",
+      "color": -278483,
       "transaction_type": 2,
       "sort_order": 0
     }

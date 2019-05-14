@@ -51,7 +51,8 @@ public class Main {
             }
 
             // if the category is never seen before
-            // add note and its category to noteAndCategoryRelation
+            // add category and its type to categoryAndTypeRelation
+            // add category and its id   to categoryAndIDRelation
             if (!categoryAndTypeRelation.containsKey(fortuneCityEntry.Category)) {
                 System.out.println("Category \"" + fortuneCityEntry.Category + "\" is never seen before");
                 System.out.println("Press 1 to set this category to EXPENSE");
