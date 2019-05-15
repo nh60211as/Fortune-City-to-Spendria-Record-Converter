@@ -13,15 +13,27 @@ public class Main {
     private static List<String> usedIDString = new LinkedList();
 
     public static void main(String[] args) throws java.text.ParseException {
-        // read Spendria template
-        SpendriaJson spendriaJson = parseSpendriaJson(new File("SpendriaTemplate.json"));
-        // read all the Entries from Fortune City
-        List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(new File(args[0]));
+        final String SpendriaTemplateFileName = "resource/SpendriaTemplate.json";
+        final String FortuneCityInputFileName = args[0];
+        final String languageCode = args[1];
+        final String SpendriaOutputFileName = args[2];
 
+        // read Spendria template
+        SpendriaJson spendriaJson = readFiles.readSpendriaJson(new File(SpendriaTemplateFileName));
         // clear out data from the imported Spendria JSON file
         // clear out tags, accounts, and transactions record
         spendriaJson.clearTempData();
         usedIDString.addAll(spendriaJson.getAllUsedIDString());
+
+        // Apply translation
+        String translationFolder = "resource/translation/%s.csv";
+        //String[] supportedLanguages = {"chT", "eng", "chS", "jpn", "kor"};
+        Map<String, String> translationMap = readFiles.readTranslationFile(new File(String.format(translationFolder, languageCode)));
+        System.out.printf("The selected language is %s.\n",translationMap.get("$LANGUAGE"));
+        spendriaJson.replaceCategoriesTitle(translationMap);
+
+        // read all the Entries from Fortune City
+        List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(new File(FortuneCityInputFileName));
 
         // KEY is fortuneCityEntry.Category. VALUE is the type of transaction.
         Map<String, Integer> categoryAndTypeRelation = new HashMap();
@@ -52,7 +64,7 @@ public class Main {
             // add category and its type to categoryAndTypeRelation
             // add category and its id   to categoryAndIDRelation
             if (!categoryAndTypeRelation.containsKey(fortuneCityEntry.Category)) {
-                System.out.printf("Category \"%s\" is never seen before",fortuneCityEntry.Category);
+                System.out.printf("Category \"%s\" is never seen before\n", fortuneCityEntry.Category);
                 System.out.println("Press 1 to set this category to EXPENSE");
                 System.out.println("Press 2 to set this category to INCOME");
 
@@ -62,7 +74,7 @@ public class Main {
                     transactionType = scanner.nextInt();
                 } while (!(transactionType == INCOME || transactionType == EXPENSE));
 
-                SpendriaCategory category = new SpendriaCategory(generateRandomHexString(),1,1,fortuneCityEntry.Category,-12627531,transactionType,sort_order);
+                SpendriaCategory category = new SpendriaCategory(generateRandomHexString(), 1, 1, fortuneCityEntry.Category, -12627531, transactionType, sort_order);
                 sort_order++;
                 spendriaJson.addCategory(category);
 
@@ -77,16 +89,16 @@ public class Main {
             transaction.sync_state = 1;
             //System.out.println(transaction.id);
 
-            transaction.amount = (long) ( fortuneCityEntry.Amount *  Math.pow(10,spendriaJson.getCurrencyDecimalCount(fortuneCityEntry.Currency)) );
+            transaction.amount = (long) (fortuneCityEntry.Amount * Math.pow(10, spendriaJson.getCurrencyDecimalCount(fortuneCityEntry.Currency)));
             switch (categoryAndTypeRelation.get(fortuneCityEntry.Category)) {
                 case INCOME:
-                    spendriaJson.addAccountBalance(fortuneCityEntry.Account,transaction.amount);
+                    spendriaJson.addAccountBalance(fortuneCityEntry.Account, transaction.amount);
                     transaction.account_to_id = spendriaJson.getAccountID(fortuneCityEntry.Account);
                     transaction.account_from_id = null;
                     transaction.transaction_type = INCOME;
                     break;
                 case EXPENSE:
-                    spendriaJson.addAccountBalance(fortuneCityEntry.Account,-transaction.amount);
+                    spendriaJson.addAccountBalance(fortuneCityEntry.Account, -transaction.amount);
                     transaction.account_to_id = null;
                     transaction.account_from_id = spendriaJson.getAccountID(fortuneCityEntry.Account);
                     transaction.transaction_type = EXPENSE;
@@ -96,7 +108,7 @@ public class Main {
                     System.out.println(categoryAndTypeRelation.get(fortuneCityEntry.Category));
                     System.out.println(spendriaJson.toString());
                     return;
-                    //break;
+                //break;
             }
 
             transaction.category_id = categoryAndIDRelation.get(fortuneCityEntry.Category);
@@ -114,33 +126,10 @@ public class Main {
         }
 
         //System.out.println(spendriaJson.getTransactions().size());
-        File outputSpendriaJson = new File(args[1]);
+        File outputSpendriaJson = new File(SpendriaOutputFileName);
         writeSpendriaJson(spendriaJson, outputSpendriaJson);
-    }
-
-    private static SpendriaJson parseSpendriaJson(File inputFile) {
-        SpendriaJson spendriaJson = new SpendriaJson();
-        Gson gson = new Gson();
-        Reader reader = null;
-        BufferedReader br = null;
-        try {
-            reader = new InputStreamReader(new FileInputStream(inputFile), StandardCharsets.UTF_8);
-            br = new BufferedReader(reader);
-            spendriaJson = gson.fromJson(br, SpendriaJson.class);
-            //System.out.println(gson.toJson(spendriaObject));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (br != null)
-                    br.close();
-                if (reader != null)
-                    reader.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return spendriaJson;
+        System.out.printf("JSON file generated to %s\n",outputSpendriaJson.getAbsolutePath());
+        System.out.println("Import it into Spendria to transfer the record.");
     }
 
     private static List<FortuneCityEntry> parseFortuneCityCSV(File inputFile) {
@@ -228,7 +217,7 @@ public class Main {
             sb.insert(12, '-');
             sb.insert(8, '-');
             output = sb.toString().substring(0, length + 4);
-        }while(usedIDString.contains(output));
+        } while (usedIDString.contains(output));
         usedIDString.add(output);
         return output;
     }

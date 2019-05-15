@@ -1,0 +1,254 @@
+{
+  "version": 9,
+  "timestamp": 1557555414002,
+  "currencies": [
+    {
+      "id": "423884d1-ed2e-401c-b548-b340d364bdec",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "TWD",
+      "symbol": "$",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "2299a5f6-7aa2-457a-8423-97a0c1807833",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "JPY",
+      "symbol": "¥",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 0
+    },
+    {
+      "id": "8c8b51a9-b7a1-49db-bbd1-68a92bce53e9",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "EUR",
+      "symbol": "€",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "a2a83f4c-ff66-403b-9d6f-6b073f65715a",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "GBP",
+      "symbol": "£",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "163ce788-3bac-4d09-a7c3-9e980e4549a5",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "USD",
+      "symbol": "US$",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "dc99e39f-e451-4463-8f1a-82ed43b543be",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "INR",
+      "symbol": "₹",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "a055667a-11c1-42a9-88d7-ab8cb7fb69fd",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "RUB",
+      "symbol": "RUB",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    },
+    {
+      "id": "0d9e00e2-7fc3-4672-84c6-1e0b2592c638",
+      "model_state": 1,
+      "sync_state": 1,
+      "code": "CNY",
+      "symbol": "CN¥",
+      "symbol_position": 2,
+      "decimal_separator": ".",
+      "group_separator": ",",
+      "decimal_count": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": "9c2dec83-efc2-4696-aec2-08ecd027036f",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$FOOD",
+      "color": -1739917,
+      "transaction_type": 1,
+      "sort_order": 0
+    },
+    {
+      "id": "e66e59cd-f58c-4d61-8f8c-72cae2a8337d",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$DRINK",
+      "color": -14816842,
+      "transaction_type": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "99fed52c-2512-4da4-9e85-5b33ac047f3f",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$TRANSPORT",
+      "color": -12409355,
+      "transaction_type": 1,
+      "sort_order": 2
+    },
+    {
+      "id": "50c85c35-a32f-9a74-f035-eec11cefd6a3",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$SHOPPING",
+      "color": -5552196,
+      "transaction_type": 1,
+      "sort_order": 3
+    },
+    {
+      "id": "692926fe-71d0-af02-42a4-ecc6411a6805",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$ENTERTAINMENT",
+      "color": -415707,
+      "transaction_type": 1,
+      "sort_order": 4
+    },
+    {
+      "id": "fdddc59a-cd55-0ee1-93b8-d7b83fd0a3a7",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$HOUSING",
+      "color": -4142541,
+      "transaction_type": 1,
+      "sort_order": 5
+    },
+    {
+      "id": "38a8a5af-e862-631e-2ffc-db686b169383",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$DIGITAL",
+      "color": -12627531,
+      "transaction_type": 1,
+      "sort_order": 6
+    },
+	{
+      "id": "f0c31103-c871-49ef-edc1-d0fbdcdb489b",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$MEDICAL",
+      "color": -1092784,
+      "transaction_type": 1,
+      "sort_order": 7
+    },
+	{
+      "id": "b41dccd5-67b8-5b4d-9a91-08581555956c",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$MISC",
+      "color": -8875876,
+      "transaction_type": 1,
+      "sort_order": 8
+    },
+    {
+      "id": "1b936e23-4c1d-d01a-66a9-540279d24a6a",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "$INCOME",
+      "color": -278483,
+      "transaction_type": 2,
+      "sort_order": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": "ae7aa114-3bbb-4a32-a690-34252ab258ea",
+      "model_state": 1,
+      "sync_state": 1,
+      "title": "Test Tag"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "5f38449c-c184-4b7a-85c8-9aeaf3af1b3c",
+      "model_state": 1,
+      "sync_state": 1,
+      "currency_code": "TWD",
+      "title": "Test From ",
+      "note": "",
+      "balance": -1200,
+      "include_in_totals": true
+    },
+    {
+      "id": "41b821a5-9f0e-45fc-b0f0-64d705b71539",
+      "model_state": 1,
+      "sync_state": 1,
+      "currency_code": "TWD",
+      "title": "Test Card ",
+      "note": "",
+      "balance": 6600,
+      "include_in_totals": true
+    }
+  ],
+  "transactions": [
+    {
+      "id": "65ceb36b-c62d-49c1-ae0b-54966e059c05",
+      "model_state": 1,
+      "sync_state": 1,
+      "account_from_id": null,
+      "account_to_id": "41b821a5-9f0e-45fc-b0f0-64d705b71539",
+      "category_id": "eea03fe7-75c8-4f9e-9cb4-e8c0eff5883d",
+      "tag_ids": [],
+      "date": 1557555389796,
+      "date_modified": 1557555389796,
+      "amount": 6600,
+      "exchange_rate": 1.0,
+      "note": "",
+      "transaction_state": 1,
+      "transaction_type": 2,
+      "include_in_reports": true
+    },
+    {
+      "id": "7011c5d6-371c-4d68-8bb5-d210e1b3b088",
+      "model_state": 1,
+      "sync_state": 1,
+      "account_from_id": "5f38449c-c184-4b7a-85c8-9aeaf3af1b3c",
+      "account_to_id": null,
+      "category_id": "9c2dec83-efc2-4696-aec2-08ecd027036f",
+      "tag_ids": [
+        "ae7aa114-3bbb-4a32-a690-34252ab258ea"
+      ],
+      "date": 1557555327676,
+      "date_modified": 1557555342170,
+      "amount": 1200,
+      "exchange_rate": 1.0,
+      "note": "Test note ",
+      "transaction_state": 1,
+      "transaction_type": 1,
+      "include_in_reports": true
+    }
+  ]
+}

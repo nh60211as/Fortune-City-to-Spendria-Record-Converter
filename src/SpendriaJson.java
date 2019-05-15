@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class SpendriaJson {
     int version;
@@ -99,5 +100,12 @@ public class SpendriaJson {
                 return currency.decimal_count;
             }
         return 0;
+    }
+
+    public void replaceCategoriesTitle(Map<String, String> translationMap){
+        for (SpendriaCategory category : categories)
+            if (translationMap.containsKey(category.title)) {
+                category.title = translationMap.get(category.title);
+            }
     }
 }
