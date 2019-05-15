@@ -19,7 +19,7 @@ Download the newest realease (includes JAR and translation files)\
 https://github.com/nh60211as/Fortune-City-to-Spendria-Record-Converter/releases
 
 ### Steps to Transfer Record
-Export the record from Fortune City (requires subscription, you can activate 14 days trial but remember to cancel it)
+Export the record from Fortune City (requires subscription, you can activate 14 days free trial but remember to cancel it)
 
 Windows 7、Windows 10 Command Prompt：
 ```
