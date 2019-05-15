@@ -13,11 +13,10 @@ public class Main {
     private static List<String> usedIDString = new LinkedList();
 
     public static void main(String[] args) throws java.text.ParseException {
-        File inputSpendriaJson = new File("Spendria.json");
-        SpendriaJson spendriaJson = parseSpendriaJson(inputSpendriaJson);
-
-        File inputFortuneCityCSV = new File(args[0]);
-        List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(inputFortuneCityCSV);
+        // read Spendria template
+        SpendriaJson spendriaJson = parseSpendriaJson(new File("SpendriaTemplate.json"));
+        // read all the Entries from Fortune City
+        List<FortuneCityEntry> fortuneCityEntries = parseFortuneCityCSV(new File(args[0]));
 
         // clear out data from the imported Spendria JSON file
         // clear out tags, accounts, and transactions record
